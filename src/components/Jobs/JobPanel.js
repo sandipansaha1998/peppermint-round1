@@ -146,6 +146,7 @@ const JobPanel = () => {
           );
         })}
       </div>
+      {/* Job Application Modal */}
       <ApplicationModal
         toggleModal={toggleModal}
         showModal={showModal}
