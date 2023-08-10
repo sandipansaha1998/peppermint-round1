@@ -12,6 +12,13 @@ const Container = styled.nav`
     color: black;
   }
 `;
+const NavTab = styled.div`
+  border-radius: 12px;
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+`;
 
 const Navbar = () => {
   let primaryBackgrounfColor = "#4cb6d5";
@@ -65,11 +72,13 @@ const Navbar = () => {
         alt=""
       />
       <div className="navigation-controller d-md-flex gap-4 d-none">
-        <div className="">HOME</div>
-        <div className="">ABOUT US</div>
-        <div className="">SOLUTIONS</div>
-        <div className="">PRODUCTS</div>
-        <div className="">RESOURCES</div>
+        <NavTab className="cursor-pointer p-3">HOME</NavTab>
+        <NavTab className="cursor-pointer p-3">ABOUT US</NavTab>
+        <NavTab className="cursor-pointer p-3">SOLUTIONS</NavTab>
+        <NavTab className="cursor-pointer p-3">PRODUCTS</NavTab>
+        <NavTab className="cursor-pointer p-3 text-light bg-dark">
+          CAREER
+        </NavTab>
       </div>
     </Container>
   );

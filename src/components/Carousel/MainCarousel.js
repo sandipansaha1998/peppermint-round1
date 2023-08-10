@@ -22,26 +22,17 @@ const CarouselImageContainer = styled.div`
   align-items: center;
   overflow: hidden;
   opacity: 0.8;
-  /* Mobile */
   @media only screen and (max-width: 767px) {
     /* CSS rules for mobile devices */
     height: 35vh;
   }
-
-  /* Tablet */
-  @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    /* CSS rules for tablet devices */
-  }
-
-  /* Desktop */
-  @media only screen and (min-width: 1024px) {
-    /* CSS rules for desktop devices */
-  }
 `;
+// This is a carousel with 3 sildes of  oppurtuinities with different departments
 export const MainCarousel = () => {
   return (
     <div className="d-block d-md-none">
       <Carousel data-bs-theme="dark" pause="hover" controls={false}>
+        {/* Software developer */}
         <Carousel.Item>
           <CarouselImageContainer
             className="d-block mx-auto"
@@ -53,13 +44,15 @@ export const MainCarousel = () => {
               style={{ objectFit: "cover" }}
             />
           </CarouselImageContainer>
-
           <Carousel.Caption className="fw-bold text-light">
             <h4 className="fw-bold">Software Development</h4>
             <p>Innovating code for seamless digital experiences</p>
-            <button className="btn btn-light fw-bold">See Jobs</button>
+            <a href="#job-panel" className="btn btn-light fw-bold">
+              See Jobs
+            </a>{" "}
           </Carousel.Caption>
         </Carousel.Item>
+        {/* AI Engineer */}
         <Carousel.Item>
           <CarouselImageContainer
             className="d-block mx-auto"
@@ -71,13 +64,15 @@ export const MainCarousel = () => {
               style={{ objectFit: "cover" }}
             />
           </CarouselImageContainer>
-
           <Carousel.Caption className="fw-bold text-light">
             <h4 className="fw-bold">AI and IOT</h4>
             <p>Crafting intelligence through cutting-edge algorithms.</p>
-            <button className="btn btn-light fw-bold">See Jobs</button>
+            <a href="#job-panel" className="btn btn-light fw-bold">
+              See Jobs
+            </a>
           </Carousel.Caption>
         </Carousel.Item>
+        {/* Marketing */}
         <Carousel.Item>
           <CarouselImageContainer
             className="d-block mx-auto "
@@ -93,7 +88,9 @@ export const MainCarousel = () => {
           <Carousel.Caption className="fw-bold text-light">
             <h4 className="fw-bold">Digital Marketing</h4>
             <p>Creating connections through strategic storytelling</p>
-            <button className="btn btn-light fw-bold">See Jobs</button>
+            <a href="#job-panel" className="btn btn-light fw-bold">
+              See Jobs
+            </a>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

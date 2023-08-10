@@ -6,7 +6,7 @@ import CounterCard from "../components/CountCard";
 const StyledAboutContainer = styled.div`
   @media only screen and (max-width: 767px) {
     /* CSS rules for mobile devices */
-    height: 100vh;
+    height: 110vh;
   }
 
   /* Tablet */

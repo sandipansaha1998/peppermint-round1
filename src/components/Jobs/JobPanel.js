@@ -2,27 +2,40 @@ import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import SelectInput from "./SelectInput";
 
+import ApplicationModal from "../Application Modal";
 import JobCard from "./JobCard";
+
 // data
 import { department, positions, locations, jobs } from "../../data/data";
 const JobPanel = () => {
+  const backgroundColor = ["#daf8f0", "#fbe4d3", "#eff2f6"];
+  // Contains the different filter parameters for searching jobs
   const searchParmsTemplate = {
     title: "",
     department: "",
     location: "",
     position: "",
   };
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+  // Hook for filter-search params
   const [searchParams, setSearchParams] = useState(searchParmsTemplate);
+  // List of jobs
   const [currentJobs, setCurrentJobs] = useState(jobs);
+  // Job Role where the user intends to apply
+  const [currentJobRole, setCurrentJobRole] = useState("");
   let handleChange = (e) => {
     setSearchParams({ ...searchParams, title: e.target.value });
   };
-
+  // Handles click on the job search button
   let handleSearch = () => {
     let { title, department, location, position } = searchParams;
-    console.log(searchParams);
     setCurrentJobs(() => {
       let updatedJobs = jobs.filter((job) => {
+        // Filtering the jobs as per the filter parameters
         if (
           job.title.toLowerCase().includes(title.toLowerCase()) &&
           (department !== ""
@@ -39,15 +52,13 @@ const JobPanel = () => {
         ) {
           return true;
         }
-        console.log(job.title.includes(title));
         return false;
       });
-      console.log(updatedJobs);
       return updatedJobs;
     });
   };
   return (
-    <div className="d-flex flex-column">
+    <div id="job-panel" className="d-flex flex-column mx-2">
       {/* Filter-search Panel */}
       <div
         className="container  d-flex text-light justify-content-around p-2 "
@@ -70,6 +81,7 @@ const JobPanel = () => {
             />
           </div>
           <div className="col-md col-5">
+            {/* Department */}
             <SelectInput
               category={"Department"}
               values={department}
@@ -78,6 +90,7 @@ const JobPanel = () => {
             />
           </div>
           <div className="col-md col-5">
+            {/* Location */}
             <SelectInput
               category={"Location"}
               values={locations}
@@ -86,6 +99,7 @@ const JobPanel = () => {
             />
           </div>
           <div className="col-md col-6  border-0 border-mdborder-end border-secondary">
+            {/* Position / Seniority */}
             <SelectInput
               category={"Position"}
               values={positions}
@@ -93,6 +107,7 @@ const JobPanel = () => {
               searchParams={searchParams}
             />
           </div>
+          {/* Search Button */}
           <div className="col">
             <button
               className="btn btn-secondary col-6 col-md-5 me-2 "
@@ -100,6 +115,7 @@ const JobPanel = () => {
             >
               Search
             </button>
+            {/* Resets the filter */}
             <button
               className="btn btn-secondary col-5 "
               onClick={() => {
@@ -112,7 +128,7 @@ const JobPanel = () => {
         </div>
       </div>
       {/* Job Display Panel */}
-      <div className="d-flex gap-2 p-4 flex-wrap justify-content-between mx-3">
+      <div className="d-flex gap-2 p-4 flex-wrap justify-content-start mx-auto col-10">
         {currentJobs.map((job, index) => {
           let { title, skills, location, position } = job;
           return (
@@ -123,10 +139,18 @@ const JobPanel = () => {
               position={position}
               location={location}
               openingDate={"10 Aug,2023"}
+              toggleModal={toggleModal}
+              setCurrentJobRole={setCurrentJobRole}
+              backgroundColor={backgroundColor[index % 3]}
             />
           );
         })}
       </div>
+      <ApplicationModal
+        toggleModal={toggleModal}
+        showModal={showModal}
+        jobRole={currentJobRole}
+      />
     </div>
   );
 };

@@ -9,7 +9,9 @@ const JobCategoryCard = ({ image, jobRole, jobDesc }) => {
       <Card.Body>
         <Card.Title>{jobRole}</Card.Title>
         <Card.Text>{jobDesc}</Card.Text>
-        <button className="btn btn-dark">Explore Jobs</button>
+        <a href="#job-panel" className="btn btn-dark">
+          Explore Jobs
+        </a>
       </Card.Body>
     </Card>
   );

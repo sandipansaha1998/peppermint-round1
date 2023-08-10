@@ -10,6 +10,9 @@ const JobCard = ({
   position,
   department,
   openingDate,
+  toggleModal,
+  setCurrentJobRole,
+  backgroundColor,
 }) => {
   return (
     <div
@@ -18,7 +21,7 @@ const JobCard = ({
     >
       <div
         className="p-3  d-flex flex-column gap-4 border  mb-3"
-        style={{ backgroundColor: "#fae1cc", borderRadius: "25px" }}
+        style={{ backgroundColor: backgroundColor, borderRadius: "25px" }}
       >
         <header className="d-flex justify-content-between">
           <Chip label={openingDate} className="col-md-6 col-lg-4 bg-light" />
@@ -44,7 +47,15 @@ const JobCard = ({
           })}
         </div>
       </div>
-      <button className="btn btn-dark mx-auto col-4">Apply</button>
+      <button
+        className="btn btn-dark mx-auto col-4"
+        onClick={() => {
+          toggleModal();
+          setCurrentJobRole(title);
+        }}
+      >
+        Apply
+      </button>
     </div>
   );
 };

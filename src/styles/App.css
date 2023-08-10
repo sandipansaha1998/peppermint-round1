@@ -1,9 +1,14 @@
+html {
+  scroll-behavior: smooth;
+}
 .App {
   text-align: center;
 
   font-family: "Poppins", sans-serif;
 }
-
+.cursor-pointer {
+  cursor: pointer;
+}
 .bg-secondary {
   background-color: #21292e !important;
 }
