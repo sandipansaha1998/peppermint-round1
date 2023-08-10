@@ -8,13 +8,13 @@ const JobCategory = () => {
     <div className="d-none d-md-flex justify-content-around">
       <JobCategoryCard
         image={aiEngineerArt}
-        jobRole={"Software Development"}
-        jobDesc={"Innovating code for seamless digital experiences"}
+        jobRole={"AI and IOT"}
+        jobDesc={"Crafting intelligence through cutting-edge algorithms "}
       />
       <JobCategoryCard
         image={developerArt}
-        jobRole={"AI and IOT"}
-        jobDesc={"Crafting intelligence through cutting-edge algorithms"}
+        jobRole={"Software Development "}
+        jobDesc={"Innovating code for seamless digital experiences"}
       />
       <JobCategoryCard
         image={digitalMarketingArt}
