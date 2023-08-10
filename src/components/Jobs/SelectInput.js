@@ -31,8 +31,12 @@ const SelectInput = ({
         <MenuItem value={""} className="text-danger">
           Remove Filter
         </MenuItem>
-        {values.map((val) => {
-          return <MenuItem value={val}>{val}</MenuItem>;
+        {values.map((val, key) => {
+          return (
+            <MenuItem key={`item-${key}`} value={val}>
+              {val}
+            </MenuItem>
+          );
         })}
       </Select>
     </FormControl>

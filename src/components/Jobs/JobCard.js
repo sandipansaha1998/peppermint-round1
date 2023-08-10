@@ -40,9 +40,14 @@ const JobCard = ({
           </h6>
         </div>
         <div className="d-flex gap-4 flex-wrap">
-          {skills.map((skil) => {
+          {skills.map((skill, key) => {
             return (
-              <Chip label={`${skil}`} variant="outlined" className="fs-6" />
+              <Chip
+                key={`skill-${key}`}
+                label={`${skill}`}
+                variant="outlined"
+                className="fs-6"
+              />
             );
           })}
         </div>
